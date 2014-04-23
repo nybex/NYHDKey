@@ -24,7 +24,7 @@
 #include "CBBigInt.h"
 #include "CBDependencies.h"
 
-static const char base58Characters[58] = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+static const char base58Characters[] = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
 /**
  @brief Decodes base 58 string into byte data as a CBBigInt.

@@ -187,10 +187,10 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
     // Make a copy of the key
     CBHDKey * keyCopy = [self privateCopy].key;
 
-    uint8_t * keyData = malloc(82*sizeof(unsigned char));
+    uint8_t * keyData = malloc(CB_HD_KEY_STR_SIZE);
     CBHDKeySerialise(keyCopy, keyData);
 
-    CBChecksumBytes * checksumBytes = CBNewChecksumBytesFromBytes(keyData, 82*sizeof(unsigned char), false);
+    CBChecksumBytes * checksumBytes = CBNewChecksumBytesFromBytes(keyData, CB_HD_KEY_STR_SIZE, false);
     CBByteArray * str = CBChecksumBytesGetString(checksumBytes);
     CBReleaseObject(checksumBytes);
 
@@ -208,17 +208,16 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
     // Make a copy of the key
     CBHDKey * keyCopy = [self publicCopy].key;
 
-    uint8_t * keyData = malloc(82*sizeof(unsigned char));
+    uint8_t * keyData = malloc(CB_HD_KEY_STR_SIZE);
     CBHDKeySerialise(keyCopy, keyData);
 
-    CBChecksumBytes * checksumBytes = CBNewChecksumBytesFromBytes(keyData, 82*sizeof(unsigned char), false);
+    CBChecksumBytes * checksumBytes = CBNewChecksumBytesFromBytes(keyData, CB_HD_KEY_STR_SIZE, false);
     CBByteArray * str = CBChecksumBytesGetString(checksumBytes);
     CBReleaseObject(checksumBytes);
 
     NSString *walletKey = [NSString stringWithUTF8String: (char *)CBByteArrayGetData(str)];
 
     CBReleaseObject(str);
-    free(keyCopy);
 
     return walletKey;
 }

@@ -55,9 +55,12 @@ NSMutableData* BTCDataFromBase58CString(const char* cstring)
             }
             break;
         }
-        
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
         BN_set_word(&bnChar, p1 - BTCBase58Alphabet);
-        
+#pragma clang diagnostic pop
+
         if (!BN_mul(&bn, &bn, &bn58, pctx))
         {
             finish();

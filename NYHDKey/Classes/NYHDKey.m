@@ -116,7 +116,7 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
 - (NYHDKey*)subkeyAtIndex:(NSNumber *)index usingPrivateDerivation:(BOOL)is_private
 {
     [self _requireKey];
-    return [[self class] initWithBTCKeychain:[self.key derivedKeychainAtIndex:index.unsignedIntegerValue
+    return [[self class] initWithBTCKeychain:[self.key derivedKeychainAtIndex:index.unsignedIntValue
                                                                      hardened:is_private]];
 }
 

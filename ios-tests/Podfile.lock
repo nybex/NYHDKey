@@ -1,0 +1,26 @@
+PODS:
+  - Expecta (0.2.4)
+  - NYHDKey (0.1.0):
+    - OpenSSL-Universal
+    - SSKeychain
+  - OpenSSL-Universal (1.0.1.g)
+  - Specta (0.2.1)
+  - SSKeychain (1.2.2)
+
+DEPENDENCIES:
+  - Expecta (~> 0.2.3)
+  - NYHDKey (from `../NYHDKey.podspec`)
+  - Specta (~> 0.2.1)
+
+EXTERNAL SOURCES:
+  NYHDKey:
+    :path: ../NYHDKey.podspec
+
+SPEC CHECKSUMS:
+  Expecta: 5c147dedfea5fbcf773995f7e65020abcc936ce5
+  NYHDKey: 685366de52da7f024fe104e3e3c4952076f0b0f1
+  OpenSSL-Universal: 5d86548fb37553c3e8b1bb577500f7fee0a71775
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
+  SSKeychain: 3d0b76c87e7b062a7ad1631a825fddec84367d44
+
+COCOAPODS: 0.32.1

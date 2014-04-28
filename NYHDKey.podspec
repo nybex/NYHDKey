@@ -21,18 +21,19 @@ Pod::Spec.new do |s|
   s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/EXAMPLE'
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
-  s.source_files = 'Classes', 'Classes/CoreBitcoin'
-  s.resources = 'Assets/*.png'
+  s.source_files = 'NYHDKey/Classes', 'NYHDKey/Classes/CoreBitcoin'
+  s.resources = 'NYHDKey/Assets/*.png'
 
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
-  s.public_header_files = 'Classes/**/*.h'
+  s.ios.exclude_files = 'NYHDKey/Classes/osx'
+  s.osx.exclude_files = 'NYHDKey/Classes/ios'
+  s.public_header_files = 'NYHDKey/Classes/**/*.h'
+
   s.frameworks = 'Security'
+
   s.dependency 'OpenSSL-Universal'
   s.dependency 'SSKeychain'
 end

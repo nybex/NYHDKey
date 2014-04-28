@@ -19,3 +19,5 @@ DerivedData
 *.hmap
 *.ipa
 
+ios-tests/Pods
+ios-tests/ios-tests.xcodeproj

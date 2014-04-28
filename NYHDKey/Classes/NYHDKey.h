@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
-#import "NYCategories.h"
 #import "SSKeychain.h"
 #import "BTCKeychain.h"
+#import "BTCKey.h"
 #import "BTCBase58.h"
 
 @interface NYHDKey : NSObject

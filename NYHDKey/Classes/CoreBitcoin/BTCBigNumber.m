@@ -318,7 +318,11 @@
     };
     
     BN_CTX* pctx = NULL;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
     BIGNUM bnBase; BN_init(&bnBase); BN_set_word(&bnBase, base);
+#pragma clang diagnostic pop
     
     while (1)
     {
@@ -377,7 +381,10 @@
     NSMutableData* resultData = nil;
     
     BN_CTX* pctx = BN_CTX_new();
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
     BIGNUM bnBase; BN_init(&bnBase); BN_set_word(&bnBase, base);
+#pragma clang diagnostic pop
     BIGNUM bn0;    BN_init(&bn0);    BN_zero(&bn0);
     BIGNUM bn;     BN_init(&bn);     BN_copy(&bn, &_bignum);
     

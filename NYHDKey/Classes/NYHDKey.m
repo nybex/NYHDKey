@@ -53,7 +53,7 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = kNYHDKeyServiceName;
     query.account = name;
-    query.password = [self privateWalletKey];
+    query.password = [self privateWalletKey] == nil ? [self publicWalletKey] : [self privateWalletKey];
 
     NSError *error = nil;
     if([query save:&error]){

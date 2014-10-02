@@ -33,10 +33,6 @@
 - (NSString*) publicWalletKey;
 - (NSNumber*) index;
 
-// Keychain Methods
-- (id) saveToKeychainWithName:(NSString *)name;
-+ (id) keyFromKeychainWithName:(NSString *)name;
-
 // Set static vars
 + (void) setServiceName:(NSString*)val;
 

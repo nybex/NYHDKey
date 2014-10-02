@@ -40,43 +40,6 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
 }
 
 /*
- * Find / Save / Delete key from keychain
- */
-
-- (id)saveToKeychainWithName:(NSString *)name
-{
-#if __IPHONE_4_0 && TARGET_OS_IPHONE
-    // Set the accessibility type we want
-    [SSKeychain setAccessibilityType:kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly];
-#endif
-
-    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
-    query.service = kNYHDKeyServiceName;
-    query.account = name;
-    query.password = [self privateWalletKey] == nil ? [self publicWalletKey] : [self privateWalletKey];
-
-    NSError *error = nil;
-    if([query save:&error]){
-        return @YES;
-    } else {
-        NSLog(@"%@", error);
-        return nil;
-    }
-}
-
-+ (id)keyFromKeychainWithName:(NSString *)name
-{
-    NSError * error;
-    NSString * walletKey = [SSKeychain passwordForService:kNYHDKeyServiceName account:name error: &error];
-    if(walletKey == nil){
-        NSLog(@"%@", error);
-        return nil;
-    } else {
-        return [NYHDKey initWithWalletKey: walletKey];
-    }
-}
-
-/*
  * Node finding and derivation functions
  */
 

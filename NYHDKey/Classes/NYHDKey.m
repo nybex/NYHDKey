@@ -8,7 +8,9 @@
 
 #import "NYHDKey.h"
 
-static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
+#import "BTCKeychain.h"
+#import "BTCKey.h"
+#import "BTCBase58.h"
 
 @implementation NYHDKey
 
@@ -113,11 +115,6 @@ static NSString *kNYHDKeyServiceName = @"NYHDKeychain";
 {
     [self _requireKey];
     return [NYHDKey initWithBTCKeychain:self.key.publicKeychain];
-}
-
-+ (void)setServiceName: (NSString*)val
-{
-    kNYHDKeyServiceName = val;
 }
 
 /*

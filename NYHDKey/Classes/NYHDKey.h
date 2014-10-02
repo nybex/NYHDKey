@@ -7,28 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CommonCrypto/CommonHMAC.h>
-#import "SSKeychain.h"
-#import "BTCKeychain.h"
-#import "BTCKey.h"
-#import "BTCBase58.h"
+
+@class BTCKeychain;
 
 @interface NYHDKey : NSObject
 
-// The
+// The Key
 @property(nonatomic, strong) BTCKeychain *key;
 
 // init new nodes with keys
-+ (NYHDKey*) initWithWalletKey:(NSString *)key;
-+ (NYHDKey*) initWithMasterSeed:(NSString*)seed;
-+ (NYHDKey*) initWithBTCKeychain:(BTCKeychain*)key;
++ (instancetype) initWithWalletKey:(NSString *)key;
++ (instancetype) initWithMasterSeed:(NSString*)seed;
++ (instancetype) initWithBTCKeychain:(BTCKeychain*)key;
 
 // search for node
-- (NYHDKey*) nodeForPath:(NSString*)path;
-- (NYHDKey*) subkeyAtIndex:(NSNumber*)index usingPrivateDerivation:(BOOL)is_private;
+- (instancetype) nodeForPath:(NSString*)path;
+- (instancetype) subkeyAtIndex:(NSNumber*)index usingPrivateDerivation:(BOOL)is_private;
 
 // get node properties
-- (NYHDKey*) publicCopy;
+- (instancetype) publicCopy;
 - (NSString*) privateWalletKey;
 - (NSString*) publicWalletKey;
 - (NSNumber*) index;

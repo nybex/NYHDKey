@@ -118,6 +118,13 @@
 }
 
 /*
+ * Signatures
+ */
+- (NSData*) signMessage:(NSString*)message {
+    return [self.key.rootKey signatureForMessage:message];
+}
+
+/*
  * Private utility functions
  */
 - (void) _requireKey

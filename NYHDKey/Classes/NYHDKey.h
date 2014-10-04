@@ -30,7 +30,7 @@
 - (NSString*) publicWalletKey;
 - (NSNumber*) index;
 
-// Set static vars
-+ (void) setServiceName:(NSString*)val;
+// Signing
+- (NSData*) signMessage:(NSString*)message;
 
 @end

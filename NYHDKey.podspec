@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/nybex/NYHDKey"
   s.license          = 'MIT'
   s.author           = { "Jud" => "Jud.Stephenson@gmail.com" }
-  s.source           = { :git => "https://github.com/nybex/NYHDKey.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/nybex/NYHDKey.git", :tag => "v#{s.version.to_s}" }
   s.social_media_url = 'https://twitter.com/JudStephenson'
 
   s.ios.deployment_target = '6.0'

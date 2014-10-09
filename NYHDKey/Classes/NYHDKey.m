@@ -6,11 +6,10 @@
 //  Copyright (c) 2013 Nybex, Inc. All rights reserved.
 //
 
-#import "NYHDKey.h"
+#import <CoreBitcoin/BTCKeychain.h>
+#import <CoreBitcoin/BTCKey.h>
 
-#import "BTCKeychain.h"
-#import "BTCKey.h"
-#import "BTCBase58.h"
+#import "NYHDKey.h"
 
 @implementation NYHDKey
 
@@ -20,7 +19,7 @@
  */
 + (NYHDKey *) initWithWalletKey:(NSString*)key
 {
-    return [[self class] initWithBTCKeychain: [[BTCKeychain alloc] initWithExtendedKey:BTCDataFromBase58Check(key)]];
+    return [[self class] initWithBTCKeychain: [[BTCKeychain alloc] initWithExtendedKey:key]];
 }
 
 + (NYHDKey *) initWithMasterSeed:(NSString*)seed
@@ -92,14 +91,14 @@
 {
     [self _requireKey];
 
-    return [self.key isPrivate] ? BTCBase58CheckStringWithData(self.key.extendedPrivateKey) : nil;
+    return [self.key isPrivate] ? self.key.extendedPrivateKey : nil;
 }
 
 - (NSString *) publicWalletKey
 {
     [self _requireKey];
 
-    return BTCBase58CheckStringWithData(self.key.extendedPublicKey);
+    return self.key.extendedPublicKey;
 }
 
 - (NSNumber *) index
@@ -121,7 +120,7 @@
  * Signatures
  */
 - (NSData*) signMessage:(NSString*)message {
-    return [self.key.rootKey signatureForMessage:message];
+    return [self.key.key signatureForMessage:message];
 }
 
 /*

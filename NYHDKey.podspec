@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "NYHDKey"
-  s.version          = "0.3.0"
+  s.version          = "0.4.0"
   s.summary          = "Useful wrapper around CoreBitcoin's HD Key implimentation"
   s.description      = <<-DESC
                        Useful wrapper around CoreBitcoin's HD Key implimentation
